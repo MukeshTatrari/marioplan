@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mario
+  labels:
+    name: mario-service
+    app: mario-app
+spec:
+  ports:
+    - port: 8080
+      name: mario-service
+      targetPort: 80
+  selector:
+    name: mario-pod
+    app: mario-app

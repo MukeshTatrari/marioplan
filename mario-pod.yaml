@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mario-pod
+  labels:
+    name: mario-pod
+    app: mario-app
+spec:
+  containers:
+    - name: mario
+      image: mukeshtatrari/mario
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 80

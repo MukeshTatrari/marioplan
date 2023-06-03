@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mario-app
+    name: mario-app-deploy
+  name: mario-app-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mario-app
+      name: mario-pod
+  template:
+    metadata:
+      name: mario-pod
+      labels:
+        name: mario-pod
+        app: mario-app
+    spec:
+      containers:
+        - name: mario
+          image: mukeshtatrari/mario
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
